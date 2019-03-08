@@ -19,3 +19,19 @@ pipeline {
         }
       }
     }
+    stage('Deploy') {
+      steps {
+        script {
+          openshift.withCluster() {
+            def dc = openshift.selector("dc", "fruits")
+            dc.rollout().latest()
+            dc.rollout().status()
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
