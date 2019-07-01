@@ -10,12 +10,12 @@ spec:
             - name: DB_USERNAME
               valueFrom:
                  secretKeyRef:
-                   name: my-database-secret
-                   key: user
+                   name: my-database
+                   key: database-user
             - name: DB_PASSWORD
               valueFrom:
                  secretKeyRef:
-                   name: my-database-secret
-                   key: password
+                   name: my-database
+                   key: database-password
             - name: JAVA_OPTIONS
               value: "-Dspring.profiles.active=openshift"
